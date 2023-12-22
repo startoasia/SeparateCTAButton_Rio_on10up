@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <!-- <script type="text/javascript">
+        var reurl = new Array();
+
+        // 取得url的參數
+        var oURL = GetURLParameter('fromSample');
+
+        //＊＊＊＊＊ 請輸入要跳轉網址URL ＊＊＊＊＊  
+        reurl[0] = 'https://www.miiulu.tw/hairserum/lp01/' + oURL;
+        //可以再新增, 唯, [0], [1], [2], [3], [4], 這個不能跳號  
+
+        var maxNum = reurl.length - 1;
+        var minNum = 0;
+        var n = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+
+
+        var nowTime = new Date()
+
+        // ==== 開始跳轉時間 ====
+        var setTime = new Date(2023, 10, 13, 9, 59,59)  //2021/2/25/17:24:00
+        // new Date(年,月,日,時,分,秒)
+        // p.s: JavaScript 表達月份 (month) 是從 0 到 11，0 是一月；11 是十二月。
+
+        // ===================
+
+        if (nowTime >= setTime) {
+            location.href = reurl[n];
+        }
+
+
+        // 取得url的參數函式
+        function GetURLParameter(oStr) {
+
+            var utm_source = "utm_source";
+            var utm_medium = "utm_medium";
+            var utm_campaign = "utm_campaign";
+            var utm_content = "utm_content";
+
+            var t_Str = "?";
+            var utm_check = 0;
+            var par_check = 0;
+
+            // Create a test URLSearchParams object
+            var sPageURL = new URLSearchParams(window.location.search.substring(1));
+
+            // Log the values
+            sPageURL.forEach(function (value, key) {
+                //console.log(value, key);
+
+                switch (key.toLowerCase()) {
+                    case 'utm_source':
+                        utm_check++;
+                        break;
+                    case 'utm_medium':
+                        utm_check++;
+                        break;
+                    case 'utm_campaign':
+                        if (oStr !== "") {
+                            value = value + "_" + oStr;
+                        }
+                        utm_check++;
+                        break;
+                    default:
+                        break;
+                }
+
+                t_Str = t_Str + key + "=" + value + "&";
+                par_check++;
+
+            });
+
+            if (t_Str == "?" || utm_check < 1) {
+                //＊＊＊＊＊ 若沒帶參數來到此頁面時，希望自動幫忙帶入的參數資訊可開啟此段程式，關閉下面那段 ＊＊＊＊＊
+                // if (par_check > 0) {
+                //     t_Str = t_Str.substring(0, t_Str.length - 1) + "&utm_source=參數一&utm_medium=參數二&utm_campaign=參數三";
+                // } else {
+                //     t_Str = t_Str + "utm_source=參數一&utm_medium=參數二&utm_campaign=參數三";
+                // }
+
+                //＊＊＊＊＊ 若沒帶參數來到此頁面時，且不想帶其他參數時，則關閉上面的程式，開啟下面的程式 ＊＊＊＊＊
+                t_Str = t_Str.substring(0, t_Str.length - 1) + "";
+            } else {
+                t_Str = t_Str.substring(0, t_Str.length - 1)
+            }
+
+            return t_Str;
+
+        }
+
+    </script> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="unsafe-url" />
+    <title>歡慶雙11 | 免沖洗miiulu橙花柔順護髮精華</title>
+    <!--描述-->
+    <meta name="description" content="雙11限定59折起！頭髮的精華液，日本沙龍御用護髮精華。輕鬆實現「滋潤爆水、閃耀柔順髮」！高保濕、不黏膩、無負擔">
+    <!--關鍵字-->
+    <meta name="keywords" content="免沖洗、沙龍級質感秀髮、沙龍御用、護髮精華、護髮精華液、柔順髮、滋潤爆水、修復受損毛躁髮質、橙花瓶">
+    <meta property="og:image" content="./images/300.jpg" />
+    <!-- animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        referrerpolicy="no-referrer" />
+    <!-- aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- swiper -->
+    <!-- fontAwesome     -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            /*畫面跳到指定位置*/
+            $("a.scrollLink").click(function (event) {
+                event.preventDefault();
+                $("html, body").animate(
+                    {
+                        /* 0 可以替換 $("class名稱(要記得加.)").height() 【header有需要固定在最上方時 使用這個👇】*/
+                        scrollTop: $($(this).attr("href")).offset().top - $("header").height(),
+                        // 【header不用固定在最上方時 使用這個👇】
+                        // scrollTop: $($(this).attr("href")).offset().top - 0,
+                    },
+                    400
+                );
+            });
+        });
+    </script>
+
+
+
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/other.css">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TZRDG5VN');</script>
+    <!-- End Google Tag Manager -->
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZRDG5VN" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+    <header>
+        <a href="#offer"><img src="./images/header.jpg" alt=""></a>
+        <div class="clock-container">優惠倒數<span id="timer"></span></div>
+    </header>
+    <div class="wrap">
+        <nav>
+            <a href="#target1" class="scrollLink offerBtn"><img src="./images/cta-01.png" alt=""></a>
+            <a href="#target2" class="scrollLink offerBtn"><img src="./images/cta-02.png" alt=""></a>
+            <a href="#target3" class="scrollLink offerBtn"><img src="./images/cta-03.png" alt=""></a>
+            <a href="#offer" class="scrollLink offerBtn"><img src="./images/cta-04.png" alt=""></a>
+        </nav>
+
+
+        <div class="bg1">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo1_01.jpg" alt="" width="800" height="83">
+
+            </div>
+        </div>
+        <div class="bg2">
+            <div class="container relative">
+                <div class="Link">
+                    <span>
+                        <img class="lazy" data-src="images/BG/colmo1_02.jpg" alt="" width="800" height="1227">
+                    </span>
+                </div>
+                <img class="lazy absolute thing02-1" data-src="images/01-0.png" alt="" width="800" height="449">
+                <img class="lazy absolute thing02-2 animate__animated " data-src="images/01-1.png" alt="" width="275"
+                    height="642">
+                <img class="lazy absolute thing02-3" data-src="images/01-2.png" alt="" width="187" height="183">
+                <img class="lazy absolute thing02-4" data-src="images/01-3.png" alt="" width="145" height="141">
+                <img class="lazy absolute thing02-5" data-src="images/01-4.png" alt="" width="145" height="141">
+                <img class="lazy absolute thing02-6" data-src="images/01-5.png" alt="" width="396" height="404">
+                <img class="lazy absolute thing02-7" data-src="images/01-6.png" alt="" width="216" height="541">
+                <img class="lazy absolute thing02-8" data-src="images/01-5-1.png" alt="" width="181" height="125">
+                <img class="lazy absolute thing02-9" data-src="images/01-5-2.png" alt="" width="128" height="123">
+            </div>
+        </div>
+        <div class="bg3">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo1_03.jpg" alt="" width="800" height="822">
+                <img class="lazy absolute thing03-1" data-src="images/02-1.png" alt="" width="621" height="152"
+                    data-aos="zoom-in" data-aos-duration="1000">
+                <img class="lazy absolute thing03-2" data-src="images/02-2.png" alt="" width="492" height="492">
+                <div class="absolute thing03-3">
+                    <video class="lazy " data-src="./images/02-2.mp4" width="100%" height="100%" playsinline muted
+                        autoplay loop></video>
+                </div>
+            </div>
+        </div>
+        <div class="bg4">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo1_04.jpg" alt="" width="800" height="1828">
+                <img class="lazy absolute thing04-1" data-src="images/03-1.png" alt="" width="231" height="225"
+                    data-aos="fade-down-right" data-aos-duration="1000">
+                <img class="lazy absolute thing04-2" data-src="images/03-2.png" alt="" width="263" height="175"
+                    data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="250">
+                <img class="lazy absolute thing04-3" data-src="images/03-3.png" alt="" width="277" height="214"
+                    data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="500">
+                <img class="lazy absolute thing04-4" data-src="images/03-4.png" alt="" width="284" height="205"
+                    data-aos="fade-up-left" data-aos-duration="1000" data-aos-delay="750">
+
+                <img class="lazy absolute thing04-5" data-src="images/03-5.gif" alt="" width="349" height="243">
+                <img class="lazy absolute thing04-6" data-src="images/03-6.gif" alt="" width="349" height="243">
+            </div>
+        </div>
+        <div class="bg5">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo1_05.jpg" alt="" width="800" height="928">
+                <img class="lazy absolute thing05-1" data-src="images/04-1.png" alt="" width="118" height="252"
+                    data-aos="fade-up" data-aos-duration="1000">
+                <div class="absolute thing05-2 Link">
+                    <span>
+                        <img class="lazy" data-src="images/04-2.png" alt="" width="496" height="175">
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        <div class="bg6">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo1_06.jpg" alt="" width="800" height="616">
+                <img class="lazy absolute thing06-1" data-src="images/05-1.png" alt="" width="133" height="150">
+                <img class="lazy absolute thing06-2" data-src="images/05-2.png" alt="" width="129" height="135">
+                <img class="lazy absolute thing06-3" data-src="images/05-3.png" alt="" width="132" height="134">
+                <img class="lazy absolute thing06-4" data-src="images/05-4.png" alt="" width="137" height="139">
+
+            </div>
+        </div>
+        <!-- offerS -->
+        <div class="bg7">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo1_07.jpg" alt="" width="800" height="1246">
+                <img class="lazy absolute thing07-1 " data-src="images/offer-59.png" alt="" width="203" height="203">
+                <img class="lazy absolute thing07-1111 scale2" data-src="images/1111.png" alt="" width="181"
+                    height="181">
+                <!-- <img class="lazy absolute thing07-2" data-src="images/offer-first.gif" alt="" width="606" height="377"> -->
+                <div class="absolute thing07-2">
+                    <video class="lazy " data-src="./images/offer-first.mp4" width="100%" height="100%" playsinline
+                        muted autoplay loop></video>
+                </div>
+                <img class="lazy absolute thing07-3 fruit" data-src="images/offer-orange.png" alt="" width="71"
+                    height="70">
+                <a href="#offer" class="absolute scrollLink offerBtn thing07-4 Link">
+                    <span>
+                        <img class="lazy" data-src="images/offer-btn.png" alt="" width="660" height="122">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!-- offerE -->
+
+        <div class="bg8" id="target1">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo1_08.jpg" alt="" width="800" height="1120">
+                <img class="lazy absolute thing08-1" data-src="images/07-1.png" alt="" width="288" height="303">
+                <img class="lazy absolute thing08-2" data-src="images/07-2.png" alt="" width="288" height="303">
+                <img class="lazy absolute thing08-3" data-src="images/07-3.png" alt="" width="288" height="303">
+                <img class="lazy absolute thing08-4" data-src="images/07-4.png" alt="" width="326" height="106"
+                    data-aos="zoom-in" data-aos-duration="1000">
+            </div>
+        </div>
+
+        <div class="bg9">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo1_09.jpg" alt="" width="800" height="1183">
+                <img class="lazy absolute thing09-1" data-src="images/08-1.png" alt="" width="280" height="409"
+                    data-aos="zoom-in" data-aos-duration="1000">
+                <img class="lazy absolute thing09-2" data-src="images/08-2.png" alt="" width="182" height="125"
+                    data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+                <img class="lazy absolute thing09-3" data-src="images/08-3.png" alt="" width="401" height="450"
+                    data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+            </div>
+        </div>
+        <div class="bg10">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo2_01.jpg" alt="" width="800" height="1000">
+                <img class="lazy absolute thing10-1" data-src="images/09-1.png" alt="" width="158" height="159">
+                <img class="lazy absolute thing10-2" data-src="images/09-2.png" alt="" width="158" height="159">
+                <img class="lazy absolute thing10-3" data-src="images/09-3.png" alt="" width="158" height="159">
+            </div>
+        </div>
+        <div class="bg11">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo2_02.jpg" alt="" width="800" height="950">
+                <img class="lazy absolute thing11-1" data-src="images/10-1.png" alt="" width="437" height="292">
+                <img class="lazy absolute thing11-2" data-src="images/10-2.gif" alt="" width="800" height="418">
+            </div>
+        </div>
+        <div class="bg12">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo2_03.jpg" alt="" width="800" height="1300">
+            </div>
+        </div>
+        <div class="bg13" id="target2">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo2_04.jpg" alt="" width="800" height="1520">
+                <img class="lazy absolute thing13-1" data-src="images/12-1.png" alt="" width="767" height="538">
+                <img class="lazy absolute thing13-2" data-src="images/12-2.png" alt="" width="210" height="145">
+                <img class="lazy absolute thing13-3" data-src="images/12-3.png" alt="" width="148" height="143">
+                <img class="lazy absolute thing13-4" data-src="images/12-4.png" alt="" width="72" height="72">
+                <img class="lazy absolute thing13-5" data-src="images/12-4-1.png" alt="" width="107" height="107">
+                <img class="lazy absolute thing13-6" data-src="images/12-5.png" alt="" width="71" height="68">
+                <img class="lazy absolute thing13-7" data-src="images/12-5-1.png" alt="" width="107" height="107">
+                <img class="lazy absolute thing13-8" data-src="images/12-6.png" alt="" width="116" height="80">
+                <img class="lazy absolute thing13-9" data-src="images/12-6-1.png" alt="" width="130" height="130">
+            </div>
+        </div>
+        <div class="bg14">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo2_05.jpg" alt="" width="800" height="1265">
+                <img class="lazy absolute thing14-1 wow animate__animated  animate__fadeInUp" data-src="images/13-1.png"
+                    alt="" width="171" height="571">
+                <img class="lazy absolute thing14-2" data-src="images/13-2.png" alt="" width="146" height="142">
+                <img class="lazy absolute thing14-3" data-src="images/13-3.png" alt="" width="146" height="142">
+                <img class="lazy absolute thing14-4" data-src="images/13-4.png" alt="" width="263" height="525">
+            </div>
+        </div>
+
+        <!-- offerS -->
+        <div class="bg15">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo2_06.jpg" width="800" height="1246">
+                <img class="lazy absolute thing15-1" data-src="images/offer-59.png" width="203" height="203">
+                <img class="lazy absolute thing15-1111 scale2" data-src="images/1111.png" width="203" height="203">
+                <!-- <img class="lazy absolute thing15-2" data-src="images/offer-first.gif" width="606" height="377"> -->
+                <div class="absolute thing15-2">
+                    <video class="lazy " data-src="./images/offer-mid.mp4" width="100%" height="100%" playsinline muted
+                        autoplay loop></video>
+                </div>
+                <img class="lazy absolute thing15-3 fruit" data-src="images/offer-orange.png" width="71" height="70">
+                <a href="#offer" class="absolute scrollLink offerBtn thing15-4 Link">
+                    <span>
+                        <img class="lazy" data-src="images/offer-btn.png" width="660" height="122">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!-- offerE -->
+        <div class="bg16">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo2_07.jpg" width="800" height="1110">
+                <div class="absolute thing16-1 Link" onclick="popShow('.popBG')">
+                    <span>
+                        <img class="lazy" data-src="./images/15-btn.png" width="364" height="69">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg17" id="target3">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo2_08.jpg" width="800" height="1185">
+                <img class="lazy absolute thing17-1" data-src="images/16-1.png" width="613" height="46">
+                <!-- <img class="lazy absolute thing17-2" data-src="images/16-2.png" width="682" height="439"> -->
+                <div class="absolute thing17-2">
+                    <video class="lazy " data-src="./images/shop.mp4" width="100%" height="100%" playsinline muted
+                        autoplay loop></video>
+                </div>
+                <!-- 跑馬燈 -->
+                <div class="absolute thing17-3">
+                    <img class="" src="images/shop_01.png" alt="">
+                    <img class="" src="images/shop_02.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="bg18">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo3_01.jpg" alt="" width="800" height="705">
+            </div>
+        </div>
+        <div class="bg19">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo3_02.jpg" alt="" width="800" height="650">
+                <div class="absolute thing19-1">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./images/slide1.png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/slide2.png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/slide3.png" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg20">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo3_03.jpg" width="800" height="1555">
+                <img class="lazy absolute thing20-1" data-src="images/18-1.png" width="737" height="167"
+                    data-aos="zoom-in" data-aos-duration="1000">
+            </div>
+        </div>
+        <!-- QA S -->
+        <div class="bg bg21">
+            <div class="container relative">
+                <img class="lazy" data-src="./images/QA/QA_01.png" alt="" width="800" height="245">
+
+                <img class="lazy curper" data-src="./images/QA/QA_02.png" alt="" width="800" height="52"
+                    onclick="scrollShow('#show1')">
+                <img id="show1" class="close_img" src="./images/QA/QA_03.png" alt="">
+
+                <img class="lazy curper" data-src="./images/QA/QA_04.png" alt="" width="800" height="115"
+                    onclick="scrollShow('#show2')">
+                <img id="show2" class="close_img" src="./images/QA/QA_05.png" alt="">
+
+                <img class="lazy curper" data-src="./images/QA/QA_06.png" alt="" width="800" height="124"
+                    onclick="scrollShow('#show3')">
+                <img id="show3" class="close_img" src="./images/QA/QA_07.png" alt="">
+
+                <img class="lazy curper" data-src="./images/QA/QA_08.png" alt="" width="800" height="122"
+                    onclick="scrollShow('#show4')">
+                <img id="show4" class="close_img" src="./images/QA/QA_09.png" alt="">
+
+                <img class="lazy curper" data-src="./images/QA/QA_10.png" alt="" width="800" height="122"
+                    onclick="scrollShow('#show5')">
+                <img id="show5" class="close_img" src="./images/QA/QA_11.png" alt="">
+
+                <img class="lazy" data-src="./images/QA/QA_12.png" alt="" width="800" height="103">
+            </div>
+        </div>
+        <!-- QA E -->
+        <!-- offer 2888 -->
+        <div class="bg22" id="offer">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo3_05_01.jpg" alt="" width="800" height="1303">
+                <div class="absolute thing22-1 Link">
+                    <span>
+                        <img class="lazy" data-src="images/offer2-1.png" alt="" width="800" height="201">
+                    </span>
+                </div>
+                <img class="lazy absolute thing22-2" data-src="images/offer2-2.png" alt="" width="181" height="181">
+                <img class="lazy absolute thing22-3" data-src="images/offer-59.png" alt="" width="203" height="203">
+                <!-- <img class="lazy absolute thing22-4" data-src="images/offer-final.gif" alt="" width="606" height="377"> -->
+                <div class="absolute thing22-4">
+                    <video class="lazy " data-src="./images/five.mp4" width="100%" height="100%" playsinline muted
+                        autoplay loop></video>
+                </div>
+                <a href="#lp_form" onclick="acsSelect('OB05');" class="absolute offerBtn offer01 Link scale">
+                    <span>
+                        <img class="lazy" data-src="images/offer2-btn.png" width="645" height="123">
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <!-- offer 1890 -->
+        <div class="bgnew">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo3_05_02.jpg" alt="" width="800" height="625">
+                <a href="#lp_form" onclick="acsSelect('OB03');" class="absolute offerBtn offernew Link scale">
+                    <span>
+                        <img class="lazy" data-src="images/offer4-btn.png" width="645" height="123">
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <!-- offer 1900 & 980 -->
+        <div class="bg23">
+            <div class="container relative">
+                <img class="lazy" data-src="images/BG/colmo3_06.jpg" alt="" width="800" height="655">
+                <a href="#lp_form" onclick="acsSelect('OB02');" class="absolute offerBtn offer02 Link scale">
+                    <span>
+                        <img class="lazy" data-src="images/offer3-btn.png" width="292" height="99">
+                    </span>
+                </a>
+                <a href="#lp_form" onclick="acsSelect('OB01');" class="absolute offerBtn offer03 Link scale">
+                    <span>
+                        <img class="lazy" data-src="images/offer3-btn.png" width="292" height="99">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="bg24">
+            <div class="container relative relative">
+                <img class="lazy" data-src="images/BG/colmo3_07.jpg" alt="" width="800" height="406">
+                <a href="mailto:info@miiulu.tw" class="absolute mail offerBtn">
+                    <img class="lazy" data-src="./images/mail.png" alt="" width="619" height="107">
+                </a>
+                <a href="tel:0809-089-896" class="absolute phone offerBtn">
+                    <img class="lazy" data-src="./images/tel.png" alt="" width="619" height="106">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- popBG -->
+    <div class="popBG">
+        <div class="popContainer">
+            <i class="fa-solid fa-x xmark" onclick="popClose('.popBG')"></i>
+            <img src="images/pop-up.jpg" alt="">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".swiper-container", {
+            centeredSlides: true,
+            freeMode: true,
+            loop: true,
+            slidesPerView: 3,
+            spaceBetween: 30,
+            // pagination: {
+            //     el: ".swiper-pagination",
+            //     clickable: true,
+            // },
+            autoplay: {
+                delay: 3000,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+        });
+    </script>
+    <script src="js/lazy.js"></script>
+    <script src="js/all.js"></script>
+    <script src="js/clock.js"></script>
+    <!-- ※LP用|編集削除禁止 -->
+    <div id="acs_lp_form"></div>
+    <script src="https://code.cros.tw/init.js"></script>
+    <!-- ※LP用|編集削除禁止 -->
+</body>
+
+</html>

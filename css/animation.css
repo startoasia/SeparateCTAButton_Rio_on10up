@@ -1,0 +1,169 @@
+/* 按鈕動畫 */
+@keyframes hoverAnim {
+	0% {
+	  	-webkit-transform: translate(-100%, 0);
+			  	transform: translate(-100%, 0); 
+	}
+	30% {
+		-webkit-transform: translate(100%, 0);
+			  	transform: translate(100%, 0); 
+	}
+	100% {
+	  	-webkit-transform: translate(100%, 0);
+			  	transform: translate(100%, 0); 
+	} 
+}
+.Link{
+    transition: 0.8s;
+}
+
+.Link span {
+    position: relative;
+    display: block;
+	overflow: hidden; 
+}
+.Link span:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  	background: linear-gradient(124deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 40%, rgba(255, 255, 255, 0.75) 50%, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
+	-webkit-transform: translate(-100%, 0);
+			transform: translate(-100%, 0);
+	pointer-events: none; 
+	animation-name: hoverAnim;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@media screen and (max-width: 640px) {
+    .Link span:after {
+        animation-duration: 4s;
+    }
+}
+
+.move{
+	animation: move 2s infinite ease-in-out;
+}
+@keyframes move {
+	0%{
+		transform: translateY(0px);
+	}
+	50%{
+		transform: translateY(5px);
+	}
+	100%{
+		transform: translateY(0px);
+	}
+}
+@keyframes moveBig {
+	0%{
+		transform: translateY(-5px);
+	}
+	50%{
+		transform: translateY(5px);
+	}
+	100%{
+		transform: translateY(-5px);
+	}
+}
+@keyframes moveRotate {
+	0%{
+		transform: translateY(-5px);
+		rotate: -5deg
+	}
+	50%{
+		transform: translateY(5px);
+		rotate: 5deg
+	}
+	100%{
+		transform: translateY(-5px);
+		rotate: -5deg
+	}
+}
+.rotate{
+	animation: rotate 2s infinite ease-in-out;
+}
+@keyframes rotate {
+	0%{
+		rotate: 5deg;
+	}
+	50%{
+		rotate: -5deg;
+	}
+	100%{
+		rotate: 5deg;
+	}
+}
+.fruit{
+	animation: fruitRotate 2s infinite ease-in-out;
+}
+@keyframes fruitRotate {
+	0%{
+		rotate: 25deg;
+	}
+	50%{
+		rotate: -25deg;
+	}
+	100%{
+		rotate: 25deg;
+	}
+}
+.scale{
+	animation: scale 2s infinite ease-in-out;
+}
+@keyframes scale {
+	0%{
+		transform: scale(1,1);
+	}
+	50%{
+		transform: scale(1.05,1.05);
+	}
+	100%{
+		transform: scale(1,1);
+	}
+}
+
+/* 雙11 */
+.scale2{
+	animation: scale 0.8s infinite ease;
+}
+@keyframes scale {
+	0%{
+		transform: scale(1,1);
+	}
+	50%{
+		transform: scale(0.9,0.9);
+	}
+	100%{
+		transform: scale(1,1);
+	}
+}
+
+
+
+/* 跑馬燈 */
+.marquee {
+    animation: marquee 24s linear infinite;
+}
+
+.marquee2 {
+    position: absolute;
+    left: 0%;
+    top: 0;
+    transform: translateX(78%);
+    animation: marquee 24s 12s linear infinite;
+}
+
+
+@keyframes marquee {
+    0% {
+        transform: translateX(78%);
+    }
+
+    100% {
+        transform: translateX(-122%);
+    }
+}
